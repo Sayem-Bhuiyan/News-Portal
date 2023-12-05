@@ -11,13 +11,20 @@ const handleCategory = async () => {
     category.forEach((category) => {
         const div = document.createElement('div');
         div.innerHTML = `
-        <a role="tab" class="tab">${category.category_name}</a>
+        <a onclick="handleNews('${category.category_id}')" role="tab" class="tab">${category.category_name}</a>
         `;
 
         tabContainer.appendChild(div)
     })
     console.log(data.data.news_category)
 };
+
+
+const handleNews = async (categoryId) => {
+    const response = await fetch(`https://openapi.programming-hero.com/api/news/category/${categoryId}`)
+    const data = await response.json();
+    console.log(data.data)
+}
 
 
 
