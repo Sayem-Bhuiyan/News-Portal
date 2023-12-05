@@ -40,7 +40,9 @@ const handleNews = async (categoryId) => {
                 }...</h2>
                 <button class="btn btn-secondary rounded-3xl">${news?.rating?.badge}</button>
               </div>
+              
               <p class="px-5 mt-4">${news?.details.slice(0, 80)}</p>
+              <p class="px-5 mt-3">Total Views: ${news?.total_view || 'No Views'}</p>
             </div>
 
             <div class="px-5 flex items-center justify-between pb-5">
@@ -69,8 +71,6 @@ const handleNews = async (categoryId) => {
 }
 
 
-
-
-
-
 handleCategory()
+
+handleNews('01')
